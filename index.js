@@ -32,7 +32,9 @@ app.use("/product", require("./routes/product"));
 app.use("/customer", require("./routes/customer"));
 app.use("/bill", require("./routes/bill"));
 app.use("/cthd", require("./routes/billInfo"));
-
+app.get("/", (req, res) => {
+  res.json({ message: "hello" });
+});
 const PORT = process.env.PORT;
 app.listen(PORT, () => {
   console.log(`Server is running at port ${PORT}`);
