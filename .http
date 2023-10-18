@@ -1,4 +1,4 @@
-POST http://localhost:5000/auth/login
+POST https://test-deploy-jbnz-b3pzz1uzt-nxhawk.vercel.app/auth/login
 Content-Type: application/json
 
 {
@@ -163,3 +163,28 @@ GET http://localhost:5000/cthd/getall
 
 ###
 GET http://localhost:5000/cthd/get/1002
+
+###
+POST https://test-deploy-jbnz-b3pzz1uzt-nxhawk.vercel.app/product/add
+Content-Type: application/json
+
+{
+  "masp":"SP02",
+  "anh":"https://cdn.tgdd.vn/Products/Images/42/313199/samsung-galaxy-a05-thumb-600x600.jpg",
+  "tensp":"Samsung Galaxy A05",
+  "hangsx":"Samsung",
+  "gia_goc":19990000, 
+  "gia":21990000, 
+  "sl":50, 
+  "maloai":"ML02",
+  "giamgia":12
+}
+
+###
+POST https://test-deploy-jbnz-b3pzz1uzt-nxhawk.vercel.app/type/add
+Content-Type: application/json
+
+{
+  "maloai":"ML03",
+  "tenloai":"Vivo"
+}

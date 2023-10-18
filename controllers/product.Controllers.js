@@ -48,8 +48,11 @@ exports.getProduct = async (req, res) => {
 
 //thêm sản phẩm mới
 exports.addNew = async (req, res) => {
-  const { masp, anh, tensp, hangsx, gia_goc, gia, sl, maloai, giamgia } =
-    req.body;
+  data = JSON.parse(req.body.data);
+  const b64 = Buffer.from(req.file.buffer).toString("base64");
+  let dataURI = "data:" + req.file.mimetype + ";base64," + b64;
+
+  const { masp, tensp, hangsx, anh, gia_goc, gia, sl, maloai, giamgia } = data;
 
   if (
     !masp ||
@@ -76,7 +79,7 @@ exports.addNew = async (req, res) => {
           if (result.length < 1) {
             return res.status(400).json({ message: "Mã loại không tồn tại" });
           } else {
-            cloudinary.uploader.upload(anh, function (error, result) {
+            cloudinary.uploader.upload(dataURI, function (error, result) {
               if (error)
                 return res.status(400).json({ message: "Cloundinary Error" });
 
