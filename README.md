@@ -1,3 +1,7 @@
+## Link Test Server
+
+https://test-deploy-jbnz-q4h9l04ge-nxhawk.vercel.app/
+
 ## Tech Stack
 
 **Code:** Nodejs, nodemon, mysql, fetchAPI, dotenv, js.
@@ -14,6 +18,7 @@
 >
 > **<kbd>5.</kbd>** Use [xampp](https://www.apachefriends.org/download.html) for database (`mysql`). You should create a database named `my-shop` (according to the `.env` file) and create an `account` table with fields as shown below..
 >
+> 
 > ![image](https://github.com/hcdman/My-Shop/assets/92797788/a36a2d00-0d3d-4c47-9139-75f7978a00e9)
 >
 > **<kbd>6.</kbd>** Start server with **`npm start`**
