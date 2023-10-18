@@ -79,33 +79,37 @@ exports.addNew = async (req, res) => {
           if (result.length < 1) {
             return res.status(400).json({ message: "Mã loại không tồn tại" });
           } else {
-            cloudinary.uploader.upload(dataURI, function (error, result) {
-              if (error)
-                return res.status(400).json({ message: "Cloundinary Error" });
+            try {
+              cloudinary.uploader.upload(dataURI, function (error, result) {
+                if (error)
+                  return res.status(400).json({ message: "Cloundinary Error" });
 
-              db.query(
-                "insert into sanpham set ?",
-                {
-                  masp,
-                  anh: result.url,
-                  tensp,
-                  hangsx,
-                  gia_goc,
-                  gia,
-                  sl,
-                  maloai,
-                  giamgia,
-                },
-                async (error, result) => {
-                  if (error)
-                    return res.status(400).json({ message: "Server Error" });
+                db.query(
+                  "insert into sanpham set ?",
+                  {
+                    masp,
+                    anh: result.url,
+                    tensp,
+                    hangsx,
+                    gia_goc,
+                    gia,
+                    sl,
+                    maloai,
+                    giamgia,
+                  },
+                  async (error, result) => {
+                    if (error)
+                      return res.status(400).json({ message: "Server Error" });
 
-                  return res.json({
-                    message: "Thêm sản phẩm thành công",
-                  });
-                }
-              );
-            });
+                    return res.json({
+                      message: "Thêm sản phẩm thành công",
+                    });
+                  }
+                );
+              });
+            } catch (error) {
+              res.status(400).json({ message: error });
+            }
           }
         }
       );
