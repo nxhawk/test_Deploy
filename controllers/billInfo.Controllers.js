@@ -4,7 +4,6 @@ const db = mysql.createConnection({
   host: process.env.DATABASE_HOST,
   user: process.env.DATABASE_USER,
   database: process.env.DATABASE,
-  password: process.env.DATABASE_PASSWORD,
 });
 
 // get all bill infor of sohd
@@ -20,7 +19,7 @@ exports.getAllBillInfo = async (req, res) => {
   });
 };
 
-//lấy chi tiết tất cả thông tin hóa đơn (sohd) (masp, teensp, ...)
+//lấy chi tiết tất cả thông tin hóa đơn (sohd) (masp, tensp, ...)
 exports.getBillInfo = async (req, res) => {
   const sohd = req.params.id;
 

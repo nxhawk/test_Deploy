@@ -5,7 +5,6 @@ const db = mysql.createConnection({
   host: process.env.DATABASE_HOST,
   user: process.env.DATABASE_USER,
   database: process.env.DATABASE,
-  password: process.env.DATABASE_PASSWORD,
 });
 
 exports.register = (req, res) => {
@@ -55,6 +54,7 @@ exports.register = (req, res) => {
 exports.login = async (req, res) => {
   try {
     const { username, password } = req.body;
+
     if (!username || !password) {
       return res.status(400).json({
         message: "Please Enter Your Username and Passsword",

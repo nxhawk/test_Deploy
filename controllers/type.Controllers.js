@@ -4,14 +4,12 @@ const db = mysql.createConnection({
   host: process.env.DATABASE_HOST,
   user: process.env.DATABASE_USER,
   database: process.env.DATABASE,
-  password: process.env.DATABASE_PASSWORD,
 });
 
 //get all type
 exports.getAllType = async (req, res) => {
   let sql = "SELECT * FROM loai";
   db.query(sql, (error, result) => {
-    if (error) console.log(error);
     if (error) return res.status(400).json({ message: "Server error" });
 
     result = JSON.parse(JSON.stringify(result));
